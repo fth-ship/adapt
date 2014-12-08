@@ -1,0 +1,33 @@
+{
+  "name": "adapt",
+  "version": "1.0.0",
+  "description": "Adaptative learning simple abstraction",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fth-ship/adapt.git"
+  },
+  "keywords": [
+    "adaptative",
+    "learning"
+  ],
+  "author": "Kaique da Silva <kaique.developer@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fth-ship/adapt/issues"
+  },
+  "homepage": "https://github.com/fth-ship/adapt",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.4.2",
+    "gulp-jsdoc-to-markdown": "^0.1.5",
+    "gulp-rename": "^1.2.0",
+    "gulp-util": "^3.0.1"
+  }
+}
