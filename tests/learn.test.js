@@ -55,4 +55,22 @@ describe('learn', function () {
     var expected = { title: 'third' };
     assert.deepEqual(current, expected, 'Not is next of');
   });
+
+  it('should be adapt to next', function () {
+    var current = actual.adapt(1, true);
+    var expected = { title: 'first' };
+    assert.deepEqual(current, expected, 'Not is adapt next');
+  });
+
+  it('should be adapt to current', function () {
+    var current = actual.adapt(1, null);
+    var expected = { title: 'second' };
+    assert.deepEqual(current, expected, 'Not is adapt current');
+  });
+
+  it('should be adapt to previous', function () {
+    var current = actual.adapt(1, false);
+    var expected = { title: 'third' };
+    assert.deepEqual(current, expected, 'Not is adapt previous');
+  });
 });

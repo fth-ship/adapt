@@ -13,6 +13,7 @@ function Learn() {
   this.getNextOf = getNextOf;
   this.getOf = getOf;
   this.getPreviousOf = getPreviousOf;
+  this.adapt = adapt;
 }
 
 /**
@@ -92,6 +93,7 @@ function getNextOf(n) {
 
 /**
  * Get actual position in series based on number of score
+ * @method getOf
  * @param n {Number} - an number
  * @return out {Object} or {Null}
  */
@@ -120,6 +122,7 @@ function getOf(n) {
 
 /**
  * Get previous position in series based on a number
+ * @method getPreviousOf
  * @param n {Number} - an number
  * @return out {Object} or {Null}
  */
@@ -143,6 +146,28 @@ function getPreviousOf(n) {
       out = previous.value;
       break;
     }
+  }
+
+  return out;
+}
+
+/**
+ * Adapt position position in serie based on params
+ * @method adapt
+ * @param currentScore {Number} - an number
+ * @param flag {Boolean} or {Null} - an flag
+ * @return out {Object} or {Null}
+ */
+function adapt(currentScore, flag) {
+  var self = this;
+  var out = null;
+
+  if (flag) {
+    out = self.getNextOf(currentScore);
+  } else if (flag === null) {
+    out = self.getOf(currentScore);
+  } else {
+    out = self.getPreviousOf(currentScore);
   }
 
   return out;
