@@ -1,7 +1,12 @@
 // file: modules/learn.js - created at 2014-12-08, 01:40
+/**
+ * Used to meta learn based on score.
+ * @constructor Learn
+ */
 function Learn() {
   // values
   this.series = [];
+  this.defaultScore = .5;
   // methods
   this.add = add;
   this.getSeries = getSeries;
@@ -10,18 +15,33 @@ function Learn() {
   this.getPreviousOf = getPreviousOf;
 }
 
+/**
+ * Method to add to series,
+ * meta information and given score.
+ * @method add
+ * @param obj {Object} - meta information
+ * @param score {Number} - score number
+ * @return self {Learn} - self instance
+ */
 function add(obj, score) {
   var self = this;
-  score = score || .5;
+  score = score || self.defaultScore;
 
   self.series.push({
     value: obj,
     _score: score
   });
 
+  self.defaultScore += .5;
+
   return self;
 }
 
+/**
+ * Get series inserted sorted by score and given value.
+ * @method getSeries
+ * @return self.series {Array} 
+ */
 function getSeries() {
   var self = this;
 
@@ -39,6 +59,12 @@ function getSeries() {
            .map(seriesMapHandler);
 }
 
+/**
+ * Get next position in series based on a number of score
+ * @method getNextOf
+ * @param n {Number} - an number
+ * @return out {Object} or {Null}
+ */
 function getNextOf(n) {
   var self = this;
   var series = self.series;
@@ -64,6 +90,11 @@ function getNextOf(n) {
   return out;
 }
 
+/**
+ * Get actual position in series based on number of score
+ * @param n {Number} - an number
+ * @return out {Object} or {Null}
+ */
 function getOf(n) {
   var self = this;
   var series = self.series;
@@ -87,6 +118,11 @@ function getOf(n) {
   return out;
 }
 
+/**
+ * Get previous position in series based on a number
+ * @param n {Number} - an number
+ * @return out {Object} or {Null}
+ */
 function getPreviousOf(n) {
   var self = this;
   var series = self.series;
