@@ -1,5 +1,5 @@
 {
-  "name": "adapt",
+  "name": "adapt-learn",
   "version": "1.0.0",
   "description": "Adaptative learning simple abstraction",
   "main": "index.js",
