@@ -8,7 +8,7 @@ gulp
   .task('docs', function () {
     return gulp
              .src(['modules/*.js'])
-             .pipe(concat('README.md'))
+             .pipe(concat('API.md'))
              .pipe(jsdoc2md())
              .on('error', function (err) {
                util.log(util.color.red('jsdoc-to-markdown was failed'), err.message);
